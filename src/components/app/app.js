@@ -1,29 +1,19 @@
 import { useActions } from "easy-peasy";
-import PropTypes from "prop-types";
-import React, { StrictMode, useEffect } from "react";
+import React, { useEffect } from "react";
 import Base from "../base";
 import Routes from "../routes";
 
-const WithStrict = ({ strict, children }) =>
-  strict ? <StrictMode>{children}</StrictMode> : children;
-
 export const App = () => {
   const initialise = useActions(actions => actions.initialise);
+  const featuredBeers = [1];
 
   useEffect(() => {
-    initialise();
-  }, [initialise]);
+    initialise(featuredBeers);
+  }, [featuredBeers, initialise]);
 
   return (
-    <WithStrict strict={false}>
-      <Base>
-        <Routes />
-      </Base>
-    </WithStrict>
+    <Base>
+      <Routes />
+    </Base>
   );
-};
-
-WithStrict.propTypes = {
-  strict: PropTypes.bool.isRequired,
-  children: PropTypes.node.isRequired
 };

@@ -2,17 +2,15 @@ import React, { lazy, Suspense } from "react";
 import { Redirect, Route, Switch, withRouter } from "react-router";
 import Home from "./home";
 
-const Categories = lazy(() => import("./categories"));
+const Catalog = lazy(() => import("./catalog"));
+const Beer = lazy(() => import("./catalog/beer"));
 
 export const Routes = () => (
-  <Suspense fallback={"Loading..."}>
+  <Suspense fallback={"Loading…"}>
     <Switch>
-      <Route exact path="/">
-        <Home />
-      </Route>
-      <Route path="/categories">
-        <Categories />
-      </Route>
+      <Route exact path="/" component={Home} />
+      <Route path="/catalog" component={Catalog} />
+      <Route path="/:id" component={Beer} />
       <Route render={() => <Redirect to="/" />} />
     </Switch>
   </Suspense>

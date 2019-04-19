@@ -1,4 +1,5 @@
 import { action, createStore, reducer, thunk } from "easy-peasy";
+import catalog from "./catalog/catalog.model";
 import loggerMiddleware from "./middleware/logger";
 import { routerMiddleware, routerReducer } from "./router/router";
 
@@ -13,8 +14,9 @@ const store = createStore(
         state.theme = state.theme === "light" ? "dark" : "light";
       })
     },
+    catalog,
     initialise: thunk(async (actions, payload, { dispatch }) => {
-      // await dispatch.something.fetchInit();
+      await dispatch.catalog.fetchFeatured(payload);
     })
   },
   {
