@@ -1,9 +1,9 @@
 import React, { lazy, Suspense } from "react";
 import { Redirect, Route, Switch, withRouter } from "react-router";
-import Home from "./home";
 
+const Home = lazy(() => import("./home"));
 const Catalog = lazy(() => import("./catalog"));
-const Beer = lazy(() => import("./catalog/beer"));
+const Beer = lazy(() => import("./beer"));
 
 export const Routes = () => (
   <Suspense fallback={"Loading…"}>

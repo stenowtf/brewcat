@@ -7,6 +7,7 @@ export const Home = () => {
 
   return (
     <>
+      <p>Featured beers:</p>
       {featured.map(beer => (
         <div key={beer.id}>
           <Link to={`/${beer.id}`}>{beer.name}</Link>
