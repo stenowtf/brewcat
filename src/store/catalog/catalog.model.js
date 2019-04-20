@@ -12,7 +12,7 @@ const logRemainingApiCalls = headers => {
 const catalog = {
   featured: [],
   beers: [],
-  beer: {},
+  beer: undefined,
   error: {
     status: "",
     message: "",
@@ -30,7 +30,7 @@ const catalog = {
     state.error.cat = "";
   }),
   setError: action((state, error) => {
-    state.beer = {};
+    state.beer = undefined;
     state.beers = [];
     state.featured = [];
     state.error.status = `${error.statusCode} ${error.error}`;

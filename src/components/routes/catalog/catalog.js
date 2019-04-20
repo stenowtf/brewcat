@@ -1,6 +1,5 @@
 import { useActions, useStore } from "easy-peasy";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { Error } from "../../base/common/error";
 import { NoResults } from "../../base/common/noResults";
 import { Search } from "../catalog/search";
@@ -11,7 +10,7 @@ export const Catalog = () => {
   const error = useStore(state => state.catalog.error);
 
   const [page, setPage] = useState(undefined);
-  const perPage = 25;
+  const perPage = 80;
 
   const fetchParams = params => {
     const query = Object.entries(params)
@@ -33,21 +32,36 @@ export const Catalog = () => {
   }, [fetchBeers, page, perPage]);
 
   return (
-    <>
-      <p>Catalog</p>
-      <Search fetchParams={fetchParams} />
+    <main className="w-100 mw9 center pa3 pa5-ns bg-white black-70">
+      <div className="mt0-ns pt0-ns">
+        <h1>{"Search the catalog"}</h1>
+        <Search fetchParams={fetchParams} />
+      </div>
       {beers.length > 0 ? (
-        beers.map(beer => (
-          <div key={beer.id}>
-            <Link to={`/beer/${beer.id}`}>{beer.name}</Link>
-          </div>
-        ))
+        <div className="mt0-ns pt0-ns">
+          <h1>{"Results"}</h1>
+          <ul className="list ph3 ph5-ns pv4">
+            {beers.map(beer => (
+              <li key={beer.id} className="dib mr1 mb2">
+                <a
+                  href={`/beer/${beer.id}`}
+                  className="f6 f5-ns b db pa2 link ba b--black-20 black hover-bg-light-yellow"
+                  title={`Beer “${beer.name}” page`}
+                >
+                  {beer.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       ) : error.status !== "" ? (
-        <Error error={error} />
+        <div className="mt4">
+          <Error error={error} />
+        </div>
       ) : (
         <NoResults />
       )}
-    </>
+    </main>
   );
 };
 

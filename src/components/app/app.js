@@ -5,7 +5,7 @@ import Routes from "../routes";
 
 export const App = () => {
   const initialise = useActions(actions => actions.initialise);
-  const featuredBeers = "1|2|3|4|5";
+  const featuredBeers = "75|155|160|281|298";
 
   useEffect(() => {
     initialise(featuredBeers);

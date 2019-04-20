@@ -2,7 +2,6 @@ import { useActions, useStore } from "easy-peasy";
 import PropTypes from "prop-types";
 import React, { useEffect } from "react";
 import { Error } from "../../base/common/error";
-import { NoResults } from "../../base/common/noResults";
 
 export const Beer = ({ match }) => {
   const fetchBeer = useActions(actions => actions.catalog.fetchBeer);
@@ -15,18 +14,20 @@ export const Beer = ({ match }) => {
 
   return (
     <>
-      {beer ? (
-        <article className="pa3 pa5-ns black-70">
+      {beer && (
+        <article className="w-100 mw9 center pa3 pa5-ns black-70">
           <h1 className="f3 f1-m f-headline-l">{beer.name}</h1>
           <h2 className="measure f2 pb4 lh-title mt0 bb bw1 fw1 baskerville i">
             {beer.tagline}
           </h2>
           <article className="cf">
             <p className="measure f3 lh-copy">{beer.description}</p>
-            <p className="measure i lh-copy">
-              {"Brewers tips: "}
-              {beer.brewers_tips}
-            </p>
+            <blockquote className="ml0 mt0 pl4 bl bw1 mb4">
+              <p className="f6 f5-m f4-l lh-copy measure mt0">
+                {"Brewers tips: "}
+                {beer.brewers_tips}
+              </p>
+            </blockquote>
             {beer.food_pairing && (
               <p className="measure lh-copy">
                 {"Food pairing:"}
@@ -86,10 +87,11 @@ export const Beer = ({ match }) => {
             </p>
           </article>
         </article>
-      ) : error.status !== "" ? (
-        <Error error={error} />
-      ) : (
-        <NoResults />
+      )}
+      {error.status !== "" && (
+        <article className="pa3 pa5-ns black-70">
+          <Error error={error} />
+        </article>
       )}
     </>
   );

@@ -3,7 +3,7 @@ import React from "react";
 
 export const Base = ({ children }) => (
   <>
-    <header className="w-100 pa3 ph5-ns bg-white">
+    <header className="w-100 pa3 ph5-ns bg-white bb bw1 b--black-05">
       <div className="db dt-ns mw9 center w-100">
         <div className="db dtc-ns v-mid tl w-50">
           <a
