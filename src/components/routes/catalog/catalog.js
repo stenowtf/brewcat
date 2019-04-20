@@ -1,8 +1,8 @@
 import { useActions, useStore } from "easy-peasy";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Error } from "../../base/error";
-import { NoResults } from "../../base/noResults";
+import { Error } from "../../base/common/error";
+import { NoResults } from "../../base/common/noResults";
 import { Search } from "../catalog/search";
 
 export const Catalog = () => {

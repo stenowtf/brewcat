@@ -5,8 +5,14 @@ const Home = lazy(() => import("./home"));
 const Catalog = lazy(() => import("./catalog"));
 const Beer = lazy(() => import("./beer"));
 
+const Loading = () => (
+  <div className="ph3 tc ph5-ns mt0-ns pt0-ns">
+    <div className="mw9 center i">{"Loading…"}</div>
+  </div>
+);
+
 export const Routes = () => (
-  <Suspense fallback={"Loading…"}>
+  <Suspense fallback={<Loading />}>
     <Switch>
       <Route exact path="/" component={Home} />
       <Route path="/catalog" component={Catalog} />

@@ -1,17 +1,30 @@
 import PropTypes from "prop-types";
 import React from "react";
-import { Link } from "react-router-dom";
 
 export const Base = ({ children }) => (
   <>
-    <div className="flex justify-between">
-      <p className="light-purple">
-        <Link to="/">brewcat</Link>
-      </p>
-      <p className="light-purple">
-        <Link to="/catalog">catalog</Link>
-      </p>
-    </div>
+    <header className="w-100 pa3 ph5-ns bg-white">
+      <div className="db dt-ns mw9 center w-100">
+        <div className="db dtc-ns v-mid tl w-50">
+          <a
+            href="/"
+            className="dib f5 f4-ns fw6 mt0 mb1 link black-70 hover-bg-light-yellow pa1"
+            title="Home"
+          >
+            {"BrewCat"}
+          </a>
+        </div>
+        <nav className="db dtc-ns v-mid w-100 tl tr-ns mt2 mt0-ns">
+          <a
+            title="Catalog"
+            href="/catalog"
+            className="f6 fw6 hover-bg-light-yellow link black-70 dib pa1"
+          >
+            {"Catalog"}
+          </a>
+        </nav>
+      </div>
+    </header>
     <>{children}</>
   </>
 );
