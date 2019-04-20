@@ -1,21 +1,21 @@
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 
-export const Search = ({ fetchParams }) => {
-  const INITIAL_STATE = {
-    beer_name: "",
-    yeast: "",
-    hops: "",
-    malt: "",
-    food: "",
-    abv_gt: "",
-    abv_lt: "",
-    ibu_gt: "",
-    ibu_lt: "",
-    ebc_gt: "",
-    ebc_lt: ""
-  };
+const INITIAL_STATE = {
+  beer_name: "",
+  yeast: "",
+  hops: "",
+  malt: "",
+  food: "",
+  abv_gt: "",
+  abv_lt: "",
+  ibu_gt: "",
+  ibu_lt: "",
+  ebc_gt: "",
+  ebc_lt: ""
+};
 
+export const Search = ({ fetchParams }) => {
   const [params, setParams] = useState(INITIAL_STATE);
 
   const handleSubmit = () => {

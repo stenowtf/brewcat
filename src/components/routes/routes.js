@@ -10,7 +10,7 @@ export const Routes = () => (
     <Switch>
       <Route exact path="/" component={Home} />
       <Route path="/catalog" component={Catalog} />
-      <Route path="/:id" component={Beer} />
+      <Route path="/beer/:id" component={Beer} />
       <Route render={() => <Redirect to="/" />} />
     </Switch>
   </Suspense>

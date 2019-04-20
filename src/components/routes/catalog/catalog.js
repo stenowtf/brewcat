@@ -1,11 +1,14 @@
 import { useActions, useStore } from "easy-peasy";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Error } from "../../base/error";
+import { NoResults } from "../../base/noResults";
 import { Search } from "../catalog/search";
 
 export const Catalog = () => {
   const fetchBeers = useActions(actions => actions.catalog.fetchBeers);
   const beers = useStore(state => state.catalog.beers);
+  const error = useStore(state => state.catalog.error);
 
   const [page, setPage] = useState(undefined);
   const perPage = 25;
@@ -33,13 +36,17 @@ export const Catalog = () => {
     <>
       <p>Catalog</p>
       <Search fetchParams={fetchParams} />
-      {beers.length > 0 &&
+      {beers.length > 0 ? (
         beers.map(beer => (
           <div key={beer.id}>
-            <Link to={`/${beer.id}`}>{beer.name}</Link>
+            <Link to={`/beer/${beer.id}`}>{beer.name}</Link>
           </div>
-        ))}
-      {beers.length === 0 && <p>No results found.</p>}
+        ))
+      ) : error.status !== "" ? (
+        <Error error={error} />
+      ) : (
+        <NoResults />
+      )}
     </>
   );
 };

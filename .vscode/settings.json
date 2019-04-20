@@ -16,7 +16,7 @@
   "editor.snippetSuggestions": "top",
   "editor.wordWrap": "on",
   "editor.wordWrapColumn": 80,
-  "files.eol": "\r\n",
+  "files.eol": "\n",
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
   "javascript.updateImportsOnFileMove.enabled": "always"
