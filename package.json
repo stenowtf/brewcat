@@ -1,6 +1,6 @@
 {
   "name": "brewcat",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "author": "Stefano Canducci <steno@fastmail.fm>",
   "main": "dist/index.html",
   "private": true,
@@ -11,7 +11,7 @@
   "scripts": {
     "build": "webpack --mode production",
     "clean": "rimraf dist/*",
-    "dev": "npm-run-all clean --parallel watch",
+    "dev": "npm run clean && npm run watch",
     "start": "npm run build",
     "watch": "webpack-dev-server --mode development --devtool cheap-module-eval-source-map"
   },
@@ -20,13 +20,15 @@
     "core-js": "3.0.1",
     "easy-peasy": "2.2.0-alpha.4",
     "history": "4.9.0",
+    "normalize.css": "8.0.1",
     "prop-types": "15.7.2",
     "react": "16.9.0-alpha.0",
     "react-dom": "16.9.0-alpha.0",
     "react-router": "5.0.0",
     "react-router-dom": "5.0.0",
     "redux-devtools-extension": "2.13.8",
-    "redux-first-history": "4.0.0-alpha.7"
+    "redux-first-history": "4.0.0-alpha.7",
+    "tachyons": "4.11.1"
   },
   "devDependencies": {
     "@babel/cli": "7.4.3",
@@ -38,11 +40,9 @@
     "@babel/plugin-transform-template-literals": "7.2.0",
     "@babel/preset-env": "7.4.3",
     "@babel/preset-react": "7.0.0",
-    "@babel/preset-typescript": "7.3.3",
     "babel-eslint": "11.0.0-beta.0",
     "babel-loader": "8.0.5",
     "clean-webpack-plugin": "2.0.1",
-    "copy-webpack-plugin": "5.0.2",
     "css-loader": "2.1.1",
     "eslint": "6.0.0-alpha.0",
     "eslint-config-prettier": "4.1.0",
@@ -56,19 +56,14 @@
     "eslint-plugin-react": "7.12.4",
     "eslint-plugin-react-hooks": "1.7.0-alpha.0",
     "eslint-plugin-standard": "4.0.0",
-    "file-loader": "3.0.1",
     "html-webpack-plugin": "4.0.0-beta.5",
-    "jss": "10.0.0-alpha.16",
-    "netlify-cli": "2.11.10",
-    "node-env-run": "3.0.2",
-    "npm-run-all": "4.1.5",
+    "netlify-cli": "2.11.11",
     "prettier": "1.17.0",
     "style-loader": "0.23.1",
-    "tachyons": "4.11.1",
     "url-loader": "1.1.2",
     "webpack": "4.30.0",
     "webpack-cli": "3.3.0",
-    "webpack-dev-server": "3.3.1",
-    "write-file-webpack-plugin": "4.5.0"
+    "write-file-webpack-plugin": "4.5.0",
+    "webpack-dev-server": "3.3.1"
   }
 }

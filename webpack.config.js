@@ -2,11 +2,14 @@ const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
-// const CopyPlugin = require("copy-webpack-plugin");
 const WriteFilePlugin = require("write-file-webpack-plugin");
 
 module.exports = {
-  entry: ["./src/index.js"],
+  entry: {
+    app: "./src/index.js",
+    normalize: "normalize.css/normalize.css",
+    tachyons: "tachyons/css/tachyons.css"
+  },
   output: {
     path: path.join(__dirname, "dist"),
     filename: "[name].[hash].js"
