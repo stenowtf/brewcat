@@ -13,6 +13,7 @@ const catalog = {
   featured: [],
   beers: [],
   beer: undefined,
+  randomId: 0,
   error: {
     status: "",
     message: "",
@@ -39,6 +40,9 @@ const catalog = {
   }),
   setBeer: action((state, payload) => {
     state.beer = payload;
+  }),
+  setRandom: action((state, payload) => {
+    state.randomId = payload.id;
   }),
   fetchBeers: thunk(async (actions, payload) => {
     axios
@@ -74,6 +78,18 @@ const catalog = {
       .get(`https://api.punkapi.com/v2/beers/?ids=${payload}`)
       .then(response => {
         actions.setFeatured(response.data);
+        logRemainingApiCalls(response.headers);
+      })
+      .catch(error => {
+        actions.setError(error.response.data);
+        logRemainingApiCalls(error.response.headers);
+      });
+  }),
+  fetchRandom: thunk(async actions => {
+    axios
+      .get(`https://api.punkapi.com/v2/beers/random`)
+      .then(response => {
+        actions.setRandom(response.data[0]);
         logRemainingApiCalls(response.headers);
       })
       .catch(error => {

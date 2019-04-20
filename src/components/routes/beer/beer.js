@@ -23,7 +23,7 @@ export const Beer = ({ match }) => {
           <article className="cf">
             <p className="measure f3 lh-copy">{beer.description}</p>
             <blockquote className="ml0 mt0 pl4 bl bw1 mb4">
-              <p className="f6 f5-m f4-l lh-copy measure mt0">
+              <p className="f6 f5-m f4-l lh-copy measure mt0 i">
                 {"Brewers tips: "}
                 {beer.brewers_tips}
               </p>

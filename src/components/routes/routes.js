@@ -4,6 +4,7 @@ import { Redirect, Route, Switch, withRouter } from "react-router";
 const Home = lazy(() => import("./home"));
 const Catalog = lazy(() => import("./catalog"));
 const Beer = lazy(() => import("./beer"));
+const Random = lazy(() => import("./random"));
 
 const Loading = () => (
   <div className="ph3 tc ph5-ns mt0-ns pt0-ns">
@@ -17,6 +18,7 @@ export const Routes = () => (
       <Route exact path="/" component={Home} />
       <Route path="/catalog" component={Catalog} />
       <Route path="/beer/:id" component={Beer} />
+      <Route path="/random" component={Random} />
       <Route render={() => <Redirect to="/" />} />
     </Switch>
   </Suspense>
