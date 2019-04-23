@@ -20,7 +20,7 @@ To do so, first you must clone the project and install its dependencies:
 
 After that you can see the results:
 
-1. `npm run build`
+1. `npm run dev`
 1. Open [http://localhost:3000/](http://localhost:3000/) on your favourite browser
 
 Enjoy!
