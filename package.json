@@ -16,7 +16,7 @@
     "watch": "webpack-dev-server --mode development --devtool cheap-module-eval-source-map"
   },
   "dependencies": {
-    "axios": "0.19.0-beta.1",
+    "axios": "0.21.1",
     "core-js": "3.0.1",
     "easy-peasy": "2.2.0-alpha.4",
     "history": "4.9.0",
